@@ -1,0 +1,188 @@
+*{
+    margin: 0;
+    padding:0;
+    list-style: none;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+#header-site{
+    background-image: linear-gradient(to bottom, #000000, #131111, #1e1d1b, #292825, #323430);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    padding: 10px 60px;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+#header-site #img-header{
+    width: 140px;
+    height: 140px;
+}
+#header-site #nav-header{
+    padding:5px 0;
+    height: 40px;
+    display: flex;
+    gap: 90px;
+
+}
+#header-site #img-header img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+#header-site #nav-header ul{
+    display: flex;
+    flex-direction: row;
+    gap:40px;   
+}
+    
+#header-site #nav-header ul .li-nav-header{
+        height: 100%;
+    }
+#header-site #nav-header ul .li-perfil-nav a img{
+    width: 100%;
+    height: 100%;
+}
+#header-site #nav-header .perfil-ul{
+    margin: 0px;
+}
+#header-site .perfil-ul{
+    width: 40px;
+}
+#header-site .perfil-ul img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+#header-site #nav-header ul .li-perfil-nav {
+    width: 40px;
+    height: 40px;
+}
+
+#header-site #nav-header ul .li-nav-header a{
+    padding: 8px 16px;
+    display: inline-block;
+    
+    font-size: 18px;
+    font-weight: 100;
+    font-family: Arial, Helvetica, sans-serif;
+}
+    #header-site #nav-header ul .li-nav-header a:hover{
+        border-bottom: 2px solid rgb(245, 191, 12);
+    }
+   
+    
+
+    #header-site #nav-header #box-btn-hamburger{
+        display: none;
+    }
+    #header-site #nav-header #box-btn-hamburger #btn-hamburger.ativo div{
+        display:none;
+    }
+    #header-site #nav-header #box-btn-hamburger #btn-hamburger.ativo div:first-child{
+        display:block;
+        position: relative;
+        margin:0;
+        transform: translate(2%,72%) rotate(225deg)
+    }
+
+    #header-site #nav-header #box-btn-hamburger #btn-hamburger.ativo div:last-child{
+        display:block;
+        position: relative;
+        margin:0;
+        transform: translateY(-30%) rotate(-225deg);
+    }
+
+    #header-site #nav-header #box-btn-hamburger div{
+        height: 5px;
+        width: 40px;
+        background-color: rgb(218, 178, 47);
+        margin-bottom: 5px;
+    }
+
+    #header-site #nav-header #box-btn-hamburger #btn-hamburger{
+        background: transparent;
+        border: none;
+    }
+    
+    
+    @media (max-width: 786px) {
+        #header-site #nav-header{
+            height: auto;
+        }
+        #header-site #nav-header #box-btn-hamburger{
+            display: block;
+        }
+        #header-site #nav-header ul{
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            background-color: rgb(218, 178, 47);
+            height: fit-content;
+            width: 100%;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            text-align: center;
+            
+    }
+    #header-site #nav-header ul.ativo{
+        display:block;
+        width: 80vw;
+        right: 0;
+        top: 100%;
+        
+        
+    }
+    #header-site .perfil-ul{
+        display: none;
+    }
+    #header-site #nav-header ul.ativo .li-nav-header a:hover{
+        border-bottom: 2px solid black;
+    }
+    
+    }
+   .teste.ativo{
+        color: #000000;
+        filter: blur(2px);
+    }
+    
+    
+    
+    
+    
+    @media (max-width: 525px) {
+        #header-site #hav-header{
+            height: auto;
+        }
+        
+        #header-site #nav-header #box-btn-hamburger{
+            display: block;
+        }
+        #header-site #nav-header ul{
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            background-color: rgb(218, 178, 47);
+            height: fit-content;
+            width: 100%;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            text-align: center;
+            
+    }
+    #header-site #nav-header ul.ativo{
+        display:block;
+        width: 100vw;
+        left:0;
+        top: 100%;
+    }
+    #header-site .perfil-ul{
+        display: none;
+    }
+    #header-site #nav-header ul.ativo .li-nav-header a:hover{
+        border-bottom: 2px solid black;
+    }
+}
