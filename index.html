@@ -47,21 +47,259 @@
             <input type="submit">
         </form>
     </section> -->
-    <div class="teste"> ajwifdhuwehfwehugfw</div>
-    
-    
-    
-    
+    <!-- <div class="teste"> ajwifdhuwehfwehugfw</div> -->
+    <section id="carrosel">
+        
+        <div class="carousel">   
+            <div class="nav nav-left">
+                <button></button>
+            </div>
+            
+            <div class="carousel-content">
+            
+                <div class="slide">
+                    <div class="conteudo-produto">
+                        <div class="box-img-produto">
+                            <img src="./imagem/CG160.webp" alt="">
+                        </div>
+                        <div class="info-produto">
+                            <h2>CG 160</h2>
+                            <span>R$ 100,00</span>
+                        </div>
+                        <div class="box-cta">
+                            <button class="cta-produto">
+                                Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="conteudo-produto">
+                        <div class="box-img-produto">
+                            <img src="./imagem/CG160.webp" alt="">
+                        </div>
+                        <div class="info-produto">
+                            <h2>CG 160</h2>
+                            <span>R$ 100,00</span>
+                        </div>
+                        <div class="box-cta">
+                            <button class="cta-produto">
+                                Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="conteudo-produto">
+                        <div class="box-img-produto">
+                            <img src="./imagem/CG160.webp" alt="">
+                        </div>
+                        <div class="info-produto">
+                            <h2>CG 160</h2>
+                            <span>R$ 100,00</span>
+                        </div>
+                        <div class="box-cta">
+                            <button class="cta-produto">
+                                Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav nav-right">
+                <button></button>
+                </div>
+        </div>
+        
+        
+        
+    </section>
+
+
+
+
+
+
+
+
+
     <script>
-        var btnHamburger = document.getElementById('btn-hamburger');
-        var navHeader = document.querySelector('#nav-header ul');
-        btnHamburger.addEventListener('click',function(evento){
-
-            evento.preventDefault();
-            navHeader.classList.toggle('ativo');
-            btnHamburger.classList.toggle('ativo');
+        
+        document.addEventListener('DOMContentLoaded', function(){
+            var btnHamburger = document.getElementById('btn-hamburger');
+            var navHeader = document.querySelector('#nav-header ul');
+            btnHamburger.addEventListener('click',function(evento){
+    
+                evento.preventDefault();
+                navHeader.classList.toggle('ativo');
+                btnHamburger.classList.toggle('ativo');
+            });
+            
+            
         });
+        
+        
+        var carousel = document.querySelector('.carousel');
+        var carousel = document.querySelector('.carousel-content');
+        var slides = document.querySelectorAll('.slide');
+        var arrayOfSlides = Array.prototype.slice.call(slides);
+        var carouselDisplaying;
+        
+        setScreenSize();
+        var lengthOfSlides;
 
+        function addClone(){
+            var lastSlide = carouselContent.lastElementChild.cloneNode(true);
+            lastSlide.style.left = (-lengthOfSlides) + 'px';
+            carouselContent.insertBefore(lastSlide, carouselContent.firstChild);
+        };
+
+        function removeClone(){
+            var firstSlide= carouselContent.firstChild;
+            firstSlide.parentNode.removeChild(firstSlide);
+        };
+        function moveSlideRight(){
+            var slides = document.querySelectorAll('.slide')
+            var slideArray = Array.prototype.slice.call(slides);
+            var width = 0;
+
+            slideArray.forEach(function(elemento, i){
+                elemento.style.left = width + 'px';
+                width+=lengthOfSlides
+            });
+            addClone();
+        }
+        moveSlideRight();
+
+        function moveSlideLeft(){
+            var slides = document.querySelectorAll('.slide')
+            var slideArray = Array.prototype.slice.call(slides);
+            slideArray = slideArray.reverse();
+            var maxWidth = (slideArray.length - 1) * lengthOfSlides;
+
+            slideArray.forEach(function(elemento, i){
+                maxWidth -= lengthOfSlides;
+                elemento.style.left= maxWidth = 'px';
+            })
+        }
+        window.addEventListener('resize', setScreenSize);
+
+        function setScreenSize(){
+            if(window.innerWidth >= 500){
+                carouselDisplaying = 3;
+            }
+            else if(window.innerWidth >= 300){
+                carouselDisplaying =2;
+            }
+            else{
+                carouselDisplaying= 1;
+            }
+            getScreenSize();
+        }
+        function getScreenSize(){
+            var slides = document.querySelectorAll('.slide');
+            var slideArray = Array.prototype.slice.call(slides);
+            lengthOfSlides= (carousel.offsetWidth / carouselDisplaying);
+            var initialWidth = -lengthOfSlides;
+
+            slideArray.forEach(function(elemento){
+                elemento.style.width = lengthOfSlides = 'px';
+                elemento.style.left = initialWidth + 'px';
+                initialWidth += lengthOfSlides;
+            })
+        }
+
+        var rightNav = document.querySelector('.nav-right');
+        rightNav.addEventListener('click', moveLeft);
+
+        var moving = true;
+
+        function moveRight(){
+            if(moving){
+                moving=false;
+                var lastSlide = carouselContent.lastElementChild;
+                lastSlide.parentNode.removeChild(lastSlide);
+                carouselContent.insertBefore(lastSlide, carouselContent.firstChild);
+                removeClone();
+                var firstSlide = carouselContent.firstElementChild;
+                firstSlide.addEventListener('transitioned', activateAgain);
+                moveSlideRight();
+            }
+        }
+
+        function activateAgain(){
+            var firstSlide = carouselContent.firstElementChild;
+            moving=true;
+            firstSlide.removeEventListener('transitioned', activateAgain);
+        }
+        var leftNav= document.querySelector('.nav-left');
+        leftNav.addEventListener('click', moveRight);
+
+        function moveLeft(){
+            if(moving){
+                moving=false;
+                removeClone();
+                var firstSlide = carouselContent.firstElementChild;
+                firstSlide.addEventListener('transitioned', replaceToEnd);
+                moveSlideLeft();
+            }
+        }
+        function replaceToEnd(){
+            var firstChild=carouselContent.firstChild;
+            firstSlide.parentNode.removeChild(firstSlide);
+            carouselContent.appendChild(firstSlide);
+            firstSlide.style.left = ((arrayOfSlides.length -1)* lengthOfSlides) + 'px';
+            addClone;
+            moving=true;
+            firstSlide.removeEventListener('transitioned', replaceToEnd);
+        }
+
+        carouselContent.addEventListener('mousedown', seeMovement);
+        var initialX;
+        var initialPos;
+
+        function seeMovement(elemento){
+            initialX = elemento,clientX;
+            getInitialPos();
+            carouselContent.addEventListener('mousemove', slightMove)
+            document.addEventListener('mouseup', moveBasedOnMouse);
+        }
+
+        function slightMove(elemento){
+            if(moving){
+                var movingX = elemento.clientX;
+                var difference = initialX - movingX;
+                if(Math.abs(difference) < (lengthOfSlides / 4)){
+                    slightMoveSlides(difference);
+                }
+            }
+        }
+        function slightMoveSlides(newX){
+            var slides = document.querySelectorAll('.slides');
+            var slidesArray = Array.prototyp.slice.call(slides);
+
+            slidesArray.forEach(function(elemento, i){
+                var oldLeft = initialPos[i];
+                elemento.style.left = (oldLeft + newX) + 'px';
+            });
+        }
+        
+        function moveBasedOnMouse(elemento){
+            var finalX= elemento.clientX;
+            if(initialX - finalX > 0){
+                moveRight();
+            }else if(initialX - finalX < 0){
+                moveLeft();
+            }
+            document.removeEventListener('mouseup', moveBasedOnMouse);
+            carouselContent.removeEventListener('mousemove', slightMove);
+        }
+        
+
+
+
+    
     </script>
 </body>
 </html>

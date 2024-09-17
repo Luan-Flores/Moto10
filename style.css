@@ -109,7 +109,82 @@
         background: transparent;
         border: none;
     }
+    .slide{
+        width: max-content;
+    }
     
+    .conteudo-produto{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: max-content;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px 14px;
+        box-shadow: 0px 3px 9px #323430;
+    }
+    .box-img-produto{
+        width: 100%;
+        max-width: 200px;
+        height: 150px;
+    }
+    .box-img-produto img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    .cta-produto{
+        background-color: blue;
+        color: aliceblue;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 8px 12px;
+        border-radius: 5px;
+        border: none;
+    }
+    .info-produto h2{
+        color: #000000;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 500;
+        font-size: 24px;
+    }
+    .info-produto span{
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 600;
+        font-size: 18px;
+        color: green;
+    }
+    .carousel{
+        position: relative;
+        width: 50%;
+        height: 266px;
+        margin: 0 auto;
+    }
+    .carousel-content{
+        position: relative;
+        overflow: hidden;
+        transition: width .4s;
+        height: 100%;
+    }
+    .slide{
+        width: max-content;
+        height: 100%;
+        position: absolute;
+        z-index: 1;
+        transition: left .4s cubic-bezier(.47, .13, .15,);
+    }
+
+
+
+
+
+
+
+
+
+
     
     @media (max-width: 786px) {
         #header-site #nav-header{
@@ -127,6 +202,7 @@
             width: 100%;
             box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
             text-align: center;
+            right: 0;
             
     }
     #header-site #nav-header ul.ativo{
