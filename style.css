@@ -1,188 +1,246 @@
 *{
     margin: 0;
-    padding:0;
+    padding: 0;
     list-style: none;
     text-decoration: none;
-    color: rgb(255, 255, 255);
+    color: rgb(8, 8, 8);
 }
 
 #header-site{
-    background-image: linear-gradient(to bottom, #000000, #131111, #1e1d1b, #292825, #323430);
+    padding: 10px 150px ;
+    background-color: #0f4571;
     display: flex;
-    align-items: center;
-    justify-content: space-around;
     flex-direction: row;
-    padding: 10px 60px;
+    align-items: center;
+    justify-content: space-between;
     position: relative;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-#header-site #img-header{
-    width: 140px;
-    height: 140px;
-}
-#header-site #nav-header{
-    padding:5px 0;
-    height: 40px;
-    display: flex;
-    gap: 90px;
 
+#header-site #img-header{
+    width: 100px;
+    height: 100px;
 }
+
 #header-site #img-header img{
     height: 100%;
     width: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: center;   
 }
+
+#header-site #nav-header{
+    padding: 5px 0;
+    height: 40px;
+}
+
+#header-site #nav-header #box-btn-hamburguer{
+    display: none;
+}
+
+#header-site #nav-header #box-btn-hamburguer #btn-hamburguer{
+    background: transparent;
+    border: none;
+}
+
+#header-site #nav-header #box-btn-hamburguer div{
+    height: 5px;
+    width: 40px;
+    background-color: #f5f5f5;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+#header-site #nav-header #box-btn-hamburguer #btn-hamburguer.ativo div{
+    display: none;
+}
+
+#header-site #nav-header #box-btn-hamburguer #btn-hamburguer.ativo div:first-child{
+    display: block;
+    position: relative;
+    margin: 0;
+    transform: translate(2%,72%) rotate(225deg);
+}
+
+#header-site #nav-header #box-btn-hamburguer #btn-hamburguer.ativo div:last-child{
+    display: block;
+    position: relative;
+    margin: 0;
+    transform: translateY(-30%) rotate(-225deg);
+}
+
 #header-site #nav-header ul{
     display: flex;
     flex-direction: row;
-    gap:40px;   
-}
-    
-#header-site #nav-header ul .li-nav-header{
-        height: 100%;
-    }
-#header-site #nav-header ul .li-perfil-nav a img{
-    width: 100%;
+    gap: 10px;
     height: 100%;
 }
-#header-site #nav-header .perfil-ul{
-    margin: 0px;
-}
-#header-site .perfil-ul{
-    width: 40px;
-}
-#header-site .perfil-ul img{
+
+#header-site #nav-header ul .item-nav-header{
     height: 100%;
+}
+
+#header-site #nav-header ul .item-nav-header a{ 
+    padding: 8px 16px;
+    display: inline-block;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+#header-site #nav-header ul .item-nav-header a:hover{ 
+    border-bottom: 1px solid #f8c007;
+}
+
+.slide{
+    width: max-content;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    transition: left .4s cubic-bezier(.47, .13, .15, .89);
+    background-color: #25252500;
+}
+.conteudo-produto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 14px;
+    box-shadow: 0px 3px 9px #0000005c;
+    background-color: white;
+}
+.box-img-produto{
     width: 100%;
+    max-width: 200px;
+    height: 150px;
+}
+.box-img-produto img{
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center;
 }
 
-#header-site #nav-header ul .li-perfil-nav {
-    width: 40px;
-    height: 40px;
-}
-
-#header-site #nav-header ul .li-nav-header a{
-    padding: 8px 16px;
-    display: inline-block;
-    
-    font-size: 18px;
-    font-weight: 100;
+.info-produto h2{
     font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: rgb(0, 0, 0);
 }
-    #header-site #nav-header ul .li-nav-header a:hover{
-        border-bottom: 2px solid rgb(245, 191, 12);
-    }
-   
-    
+.info-produto span{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: green;
+}
+.cta-produto{
+    background-color: #0f4571;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: none;
+}
+#sec-inicio{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+#txt-inicio{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+#sec-inicio img{
+    height: 300px;
+    width: auto;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 15px;
+    box-shadow: 0px 3px 9px rgb(71, 69, 69); 
+}
+#txt-inicio button{
+    background-color: #0f4571;
+    color: white;
+    height: 30px;
+    width: 20%;
+    border-radius: 15px;
+}
+.inicio-li h2:hover{
+    border-bottom: 1px solid rgb(236, 187, 24);
+}
+.inicio-li li{
+    height: 30px;
+    list-style-type: disc;
+}
 
-    #header-site #nav-header #box-btn-hamburger{
+.carousel{
+    position: relative;
+    width: 68%;
+    height: 266px;
+    margin: 0 auto;
+}
+.nav{
+    position: absolute;
+    z-index: 50;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.nav.nav-left{
+    left: -50px;
+}
+.nav.nav-right{
+    right: -50px;
+}
+.nav button{
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    padding: 15px;
+}
+#sec-carousel{
+    width: 100%;
+    margin-top: 40px;
+    height: 350px;
+    background-color: #f8ab03;
+    align-items: center;
+    display: flex;
+}
+
+.carousel-content{
+    position: relative;
+    overflow: hidden;
+    transition: width .4s;
+    height: 100%;
+}
+
+@media (max-width: 525px) {v +
+    #header-site #nav-header{
+        height: auto;
+    }
+
+    #header-site #nav-header #box-btn-hamburguer{
+        display: block;
+    }
+
+    #header-site #nav-header ul{
         display: none;
+        flex-direction: column;
+        position: absolute;
+        background-color: #f8c007;
+        height: fit-content;
     }
-    #header-site #nav-header #box-btn-hamburger #btn-hamburger.ativo div{
-        display:none;
-    }
-    #header-site #nav-header #box-btn-hamburger #btn-hamburger.ativo div:first-child{
-        display:block;
-        position: relative;
-        margin:0;
-        transform: translate(2%,72%) rotate(225deg)
-    }
-
-    #header-site #nav-header #box-btn-hamburger #btn-hamburger.ativo div:last-child{
-        display:block;
-        position: relative;
-        margin:0;
-        transform: translateY(-30%) rotate(-225deg);
-    }
-
-    #header-site #nav-header #box-btn-hamburger div{
-        height: 5px;
-        width: 40px;
-        background-color: rgb(218, 178, 47);
-        margin-bottom: 5px;
-    }
-
-    #header-site #nav-header #box-btn-hamburger #btn-hamburger{
-        background: transparent;
-        border: none;
-    }
-    
-    
-    @media (max-width: 786px) {
-        #header-site #nav-header{
-            height: auto;
-        }
-        #header-site #nav-header #box-btn-hamburger{
-            display: block;
-        }
-        #header-site #nav-header ul{
-            display: none;
-            flex-direction: column;
-            position: absolute;
-            background-color: rgb(218, 178, 47);
-            height: fit-content;
-            width: 100%;
-            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-            text-align: center;
-            
-    }
-    #header-site #nav-header ul.ativo{
-        display:block;
-        width: 80vw;
-        right: 0;
-        top: 100%;
-        
-        
-    }
-    #header-site .perfil-ul{
-        display: none;
-    }
-    #header-site #nav-header ul.ativo .li-nav-header a:hover{
-        border-bottom: 2px solid black;
-    }
-    
-    }
-   .teste.ativo{
-        color: #000000;
-        filter: blur(2px);
-    }
-    
-    
-    
-    
-    
-    @media (max-width: 525px) {
-        #header-site #hav-header{
-            height: auto;
-        }
-        
-        #header-site #nav-header #box-btn-hamburger{
-            display: block;
-        }
-        #header-site #nav-header ul{
-            display: none;
-            flex-direction: column;
-            position: absolute;
-            background-color: rgb(218, 178, 47);
-            height: fit-content;
-            width: 100%;
-            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-            text-align: center;
-            
-    }
-    #header-site #nav-header ul.ativo{
-        display:block;
+    #header-site #nav-header ul.ativo {
+        display: block;
         width: 100vw;
-        left:0;
+        left: 0;
         top: 100%;
     }
-    #header-site .perfil-ul{
-        display: none;
-    }
-    #header-site #nav-header ul.ativo .li-nav-header a:hover{
-        border-bottom: 2px solid black;
-    }
+
+
 }
